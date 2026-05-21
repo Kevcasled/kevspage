@@ -10,17 +10,15 @@ pipeline {
 
         stage('Validar PHP') {
             steps {
-                sh 'find backend/ -name "*.php" -exec php -l {} \;'
+                sh 'find backend/ -name "*.php" | xargs php -l'
             }
         }
 
         stage('Desplegar en Apache') {
             steps {
-                sh '''
-                    sudo mkdir -p /var/www/html/cv_site
-                    sudo cp -r backend/* /var/www/html/cv_site/
-                    sudo systemctl reload apache2
-                '''
+                sh 'sudo mkdir -p /var/www/html/cv_site'
+                sh 'sudo cp -r backend/* /var/www/html/cv_site/'
+                sh 'sudo systemctl reload apache2'
             }
         }
     }
