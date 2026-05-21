@@ -16,9 +16,7 @@ pipeline {
 
         stage('Desplegar en Apache') {
             steps {
-                sh 'sudo mkdir -p /var/www/html/cv_site'
-                sh 'sudo cp -r backend/* /var/www/html/cv_site/'
-                sh 'sudo systemctl reload apache2'
+                sh 'cp -r backend/* /var/www/html/cv_site/'
             }
         }
     }
