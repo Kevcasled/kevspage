@@ -2,7 +2,7 @@
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 
- = [
+$data = [
     'name' => 'Kevin Castellon',
     'role' => 'Full Stack Developer',
     'email' => 'kevincastellonledezma@gmail.com',
@@ -10,4 +10,4 @@ header('Access-Control-Allow-Origin: *');
     'skills' => ['PHP', 'React', 'Laravel', 'Docker', 'Jenkins']
 ];
 
-echo json_encode();
+echo json_encode($data);
